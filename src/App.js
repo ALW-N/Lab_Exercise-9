@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import BookSearch from './components/BookSearch';
+import BookList from './components/BookList';
+import BookReviewForm from './components/BookReviewForm';
+import BookReviewList from './components/ReviewList';
+import data from './Books.json';
 
 function App() {
+  const [searchResults, setSearchResults] = useState([]);
+  const [reviews, setReviews] = useState([]);
+
+  const handleSearch = (searchTerm) => {
+    // Implement book search logic (e.g., filtering data based on searchTerm)
+    const filteredBooks = data.filter((book) =>
+      book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(filteredBooks);
+  };
+
+  const handleReviewSubmit = (review) => {
+    setReviews([...reviews, review]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Online Bookstore</h1>
+      <BookSearch onSearch={handleSearch} />
+      <BookList books={searchResults} />
+      <BookReviewForm onSubmit={handleReviewSubmit} />
+      <BookReviewList reviews={reviews} />
     </div>
   );
 }
