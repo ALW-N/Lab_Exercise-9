@@ -127,12 +127,15 @@ ul {
 }
 
 .close-button:hover {
-  background-color: #cc0077; /* Hover color */
+  background-color: #cc0077;
 }
 
 /* Background image */
 body {
-  background-image: url('https://images.pexels.com/photos/547115/pexels-photo-547115.jpeg?auto=compress&cs=tinysrgb&w=600');
+  /* background-image: url('https://images.pexels.com/photos/547115/pexels-photo-547115.jpeg?auto=compress&cs=tinysrgb&w=600');
+   */
+   background: rgb(238,174,202);
+   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

@@ -6,14 +6,14 @@ function BookReviewForm({ onSubmit }) {
   const [showReview, setShowReview] = useState(false);
 
   const handleSubmit = () => {
-    // Validation logic can be added here
+    
     onSubmit({ rating, reviewText });
-    // Show the review pop-up
+
     setShowReview(true);
   };
 
   const closeReview = () => {
-    // Close the review pop-up
+
     setShowReview(false);
   };
 
